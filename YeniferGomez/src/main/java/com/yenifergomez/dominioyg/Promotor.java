@@ -15,7 +15,7 @@ public class Promotor extends Empleado{
 
     @Override
     public long calcularSalarioGomez() {
-        return (valorVolanteYenifer * volantesRepartidosYenifer) + (comprasVolanteYenifer * 15000);
+        return (long) ((valorVolanteYenifer * volantesRepartidosYenifer) + (comprasVolanteYenifer * 15000));
     }
 
     public int getVolantesRepartidosYenifer() {

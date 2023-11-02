@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class Nomina {
     private  ArrayList<Empleado> empleadosYenifer;
 
+    public Nomina(ArrayList<Empleado> empleadosYenifer) {
+        this.empleadosYenifer = empleadosYenifer;
+    }
+
     public void calcularNominaGomez(){
         for (Empleado empleado : empleadosYenifer) {
             double salarioTotal = 0.0;
@@ -15,9 +19,9 @@ public class Nomina {
                 salarioTotal = ((Freelance) empleado).calcularSalarioGomez();
             } else if (empleado instanceof Promotor) {
                 salarioTotal = ((Promotor) empleado).calcularSalarioGomez();
-            }/*else if (empleado instanceof Vendedor) {
+            }else if (empleado instanceof Vendedor) {
                 salarioTotal = ((Vendedor) empleado).calcularSalarioGomez();
-            }*/
+            }
             System.out.println(empleado.getNombreYenifer() + ": " + salarioTotal);
         }
 

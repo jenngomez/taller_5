@@ -10,14 +10,27 @@ public class Vendedor extends Directo{
         this.ventasDelMesYenifer=ventasDelMesYenifer;
     }
 
-    public long calcularComisionGomez(){
-        long valorComision=0;
+    @Override
+    public long calcularSalarioGomez() {
 
-        if(getSalarioYenifer()<999999){
-            valorComision=(long)((ventasDelMesYenifer*0.04)*getSalarioYenifer());
-        } else if (getSalarioYenifer()>1000000) {
-            valorComision=(long)((ventasDelMesYenifer*0.35)*getSalarioYenifer());
+        return (getSalarioYenifer() + calcularComisionGomez())-(calcularPensionGomez()+calcularSaludGomez());
+    }
+    public long calcularComisionGomez(){
+        long comision =0;
+
+        if (getSalarioYenifer() < 999999) {
+            comision = (long) ((ventasDelMesYenifer * 0.04));
+        } else if (getSalarioYenifer() > 1000000) {
+            comision = (long) ((ventasDelMesYenifer * 0.035));
         }
-        return valorComision;
+        return comision;
+    }
+
+    public long getVentasDelMesYenifer() {
+        return ventasDelMesYenifer;
+    }
+
+    public void setVentasDelMesYenifer(long ventasDelMesYenifer) {
+        this.ventasDelMesYenifer = ventasDelMesYenifer;
     }
 }

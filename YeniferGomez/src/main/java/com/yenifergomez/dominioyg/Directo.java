@@ -17,20 +17,10 @@ public class Directo extends Empleado{
         return (long) (salarioYenifer * 0.065);
     }
 
+
     @Override
-    public long calcularSalarioGomez() {
-
-        long aporteSalud = calcularSaludGomez();
-        long aportePension = calcularPensionGomez();
-
-        salarioYenifer -= (aporteSalud + aportePension);
-
-        if (this instanceof Vendedor) {
-            Vendedor vendedor = (Vendedor) this;
-            salarioYenifer += vendedor.calcularComisionGomez();
-        }
-
-        return salarioYenifer;
+    public long calcularSalarioGomez(){
+        return (salarioYenifer-calcularSaludGomez())-calcularPensionGomez();
     }
 
     public long getSalarioYenifer() {
